@@ -12,6 +12,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider android:name=".graph.provider.DataContentProvider" android:label="@string/provider_name" android:authorities="com.dev43.cartax.provider"></provider>
 
     </application>
 </manifest>

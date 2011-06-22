@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">A car is an expensive toy</string>
+    <string name="welcome">A car is an expensive toy</string>
     <string name="app_name">Car Tax 1.0</string>
+    <string name="graph_button">Show graph</string>
+    <string name="provider_name">Some random data</string>
 </resources>
