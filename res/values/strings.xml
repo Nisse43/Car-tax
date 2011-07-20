@@ -14,4 +14,9 @@
     <string name="car_co2">CO^2 g/km</string>
     <string name="car_consumption">l/100km</string>
     <string name="car_heading">Please fill in the car data</string>
+    <string name="add_car">Add car</string>
+    <string name="help">Help</string>
+    <string name="add_edit_car">Add or edit car</string>
+    <string name="petrol">Petrol</string>
+    <string name="diesel">Diesel</string>
 </resources>

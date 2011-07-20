@@ -2,7 +2,12 @@ package com.dev43.cartax;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -17,6 +22,9 @@ public class CarTaxActivity extends Activity implements View.OnClickListener {
 
 	static final String TAG = "CarTax";
 
+	private static final int ADD_NEW_CAR = 0;
+	private static final int EDIT_CAR = 1;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -25,7 +33,50 @@ public class CarTaxActivity extends Activity implements View.OnClickListener {
 		this.buttonShowGraph.setOnClickListener(this);
 
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.menu, menu);
+	    return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	    case R.id.add_car:
+	        newCar();
+	        return true;
+	    case R.id.help:
+	        showHelp();
+	        return true;
+	    default:
+	        return super.onOptionsItemSelected(item);
+	    }
+	}
 
+	private void newCar() {
+		// TODO Auto-generated method stub
+		Intent intent = new Intent(this, AddCarActivity.class);
+		startActivityForResult(intent, ADD_NEW_CAR);
+	}
+
+	private void showHelp() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	    // If the request went well (OK) and the request was PICK_CONTACT_REQUEST
+	    if (resultCode == Activity.RESULT_OK && requestCode == ADD_NEW_CAR) {
+	        // Perform a query to the contact's content provider for the contact's name
+	    	Log.i(TAG, "Received activity result");
+	    }
+	}
+
+	
 	// ========================================================================
 	public void onClick(View v) {
 		switch (v.getId()) {

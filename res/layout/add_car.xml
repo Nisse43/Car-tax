@@ -19,7 +19,7 @@
         </TableRow>
         <TableRow android:id="@+id/tableRow3" android:layout_width="wrap_content" android:layout_height="wrap_content">
             <TextView android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_gravity="center_vertical" android:text="@string/fuel_type"></TextView>
-            <ToggleButton android:layout_width="wrap_content" android:layout_gravity="center_vertical" android:layout_height="wrap_content" android:text="@string/fuel_type" android:layout_weight="0.0" android:id="@+id/toggleButtonDiesel"></ToggleButton>
+            <ToggleButton android:layout_width="wrap_content" android:layout_gravity="center_vertical" android:layout_height="wrap_content" android:text="@string/fuel_type" android:layout_weight="0.0" android:id="@+id/toggleButtonDiesel" android:textOff="@string/petrol" android:textOn="@string/diesel"></ToggleButton>
         </TableRow>
         <TableRow android:id="@+id/tableRow4" android:layout_width="wrap_content" android:layout_height="wrap_content">
             <TextView android:id="@+id/textView4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_gravity="center_vertical" android:text="@string/car_co2"></TextView>
@@ -30,8 +30,8 @@
             <EditText android:inputType="numberDecimal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/editTextLKM"></EditText>
         </TableRow>
         <TableRow android:id="@+id/tableRow6" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <Button android:layout_height="wrap_content" android:id="@+id/button1" android:text="@android:string/cancel" android:layout_width="150dip"></Button>
-            <Button android:layout_width="wrap_content" android:text="@android:string/ok" android:layout_height="wrap_content" android:id="@+id/button2"></Button>
+            <Button android:layout_height="wrap_content" android:text="@android:string/cancel" android:layout_width="150dip" android:onClick="@android:string/cancel" android:id="@+id/buttonCancel"></Button>
+            <Button android:layout_width="wrap_content" android:text="@android:string/ok" android:layout_height="wrap_content" android:id="@+id/buttonOk"></Button>
         </TableRow>
     </TableLayout>
 </RelativeLayout>

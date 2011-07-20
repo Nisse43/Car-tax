@@ -13,6 +13,12 @@
             </intent-filter>
         </activity>
         <provider android:name=".graph.provider.DataContentProvider" android:label="@string/provider_name" android:authorities="com.dev43.cartax.provider"></provider>
+        <activity android:label="@string/add_edit_car" android:name=".AddCarActivity">
+            <intent-filter>
+                <action android:name="ADD_NEW_CAR"></action>
+                <action android:name="EDIT_CAR"></action>
+            </intent-filter>
+        </activity>
 
     </application>
 </manifest>
