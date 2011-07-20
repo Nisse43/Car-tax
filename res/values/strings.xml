@@ -4,4 +4,14 @@
     <string name="app_name">Car Tax 1.0</string>
     <string name="graph_button">Show graph</string>
     <string name="provider_name">Some random data</string>
+    <string name="market_downdoad_alternative">Android Market not available, trying to download from chartdroid</string>
+    <string name="car_name">Car</string>
+    <string name="fuel_type">Diesel</string>
+    <string name="car_year">Year</string>
+    <string name="chart_title">Car anual cost/km</string>
+    <string name="chart_xlabel">1000 km</string>
+    <string name="chart_ylabel">Cost</string>
+    <string name="car_co2">CO^2 g/km</string>
+    <string name="car_consumption">l/100km</string>
+    <string name="car_heading">Please fill in the car data</string>
 </resources>

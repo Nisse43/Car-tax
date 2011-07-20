@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class Market {
 	public static final int NO_RESULT = -1;
 
-	public static final String TAG = "ChartDroidCore";
+	public static final String TAG = "Market";
 
 
 	public static final String MARKET_PACKAGE_DETAILS_PREFIX = "market://details?id=";
@@ -53,7 +53,7 @@ public class Market {
 			try {
 				context.startActivity(i);
 			} catch (ActivityNotFoundException e) {
-				Toast.makeText(context, "Android Market not available, trying to download from chartdroid", Toast.LENGTH_LONG).show();
+				Toast.makeText(context, R.string.market_downdoad_alternative, Toast.LENGTH_LONG).show();
 				Intent i2 = getMarketDownloadIntent(APK_DOWNLOAD_FILENAME_CHARTDROID);
 				context.startActivity(i2);
 			}

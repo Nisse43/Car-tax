@@ -15,7 +15,7 @@ public class CarTaxActivity extends Activity implements View.OnClickListener {
 
 	static final String GOOGLE_CODE_URL = "http://chartdroid.googlecode.com/";
 
-	static final String TAG = "ChartDroid";
+	static final String TAG = "CarTax";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
