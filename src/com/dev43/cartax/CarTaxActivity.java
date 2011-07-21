@@ -21,7 +21,8 @@ public class CarTaxActivity extends Activity implements View.OnClickListener {
 	/** Called when the activity is first created. */
 	private Button buttonShowGraph;
 	private ListView carList;
-	private ArrayList<Car> cars;
+	private ArrayAdapter<Car> carListAdapter;
+
 	static final String GOOGLE_CODE_URL = "http://chartdroid.googlecode.com/";
 
 	static final String TAG = "CarTax";
@@ -37,9 +38,13 @@ public class CarTaxActivity extends Activity implements View.OnClickListener {
 		this.buttonShowGraph.setOnClickListener(this);
 
 		this.carList = (ListView) findViewById(R.id.listViewCars);
-		cars = new ArrayList<Car>();
-		cars.add(new Car("Lada", 2.0, 3, 2011));
-		carList.setAdapter(new ArrayAdapter<Car>(this, android.R.layout.simple_list_item_1, cars));
+		CostData.CARS.add(new Car("Lada", true, 2001, 2700, 118, 5.2/100));
+		carListAdapter = new ArrayAdapter<Car>(this, android.R.layout.simple_list_item_1, CostData.CARS);
+		carList.setAdapter(carListAdapter);
+		CostData.CARS.add(new Car("buic", false, 2001, 2700, 118, 5.2/100));
+		CostData.CARS.add(new Car("Mercedes", true, 2004, 1320, 134, 7.0/100));
+		CostData.CARS.add(new Car("Toyota", false, 2005, 2599, 140, 8.3/100));
+		CostData.CARS.add(new Car("Mazda", false, 2003, 1500, 130, 5.2/100));
 	}
 	
 	@Override
@@ -81,6 +86,7 @@ public class CarTaxActivity extends Activity implements View.OnClickListener {
 	    if (resultCode == Activity.RESULT_OK && requestCode == ADD_NEW_CAR) {
 	        // Perform a query to the contact's content provider for the contact's name
 	    	Log.i(TAG, "Received activity result");
+	    	carListAdapter.notifyDataSetChanged();
 	    }
 	}
 
@@ -92,7 +98,7 @@ public class CarTaxActivity extends Activity implements View.OnClickListener {
 		{
 			Intent i = new Intent(Intent.ACTION_VIEW, DataContentProvider.PROVIDER_URI);
 			i.putExtra(Intent.EXTRA_TITLE, CostData.DEMO_CHART_TITLE);
-			i.putExtra(IntentConstants.Meta.Axes.EXTRA_FORMAT_STRING_Y, "%.1f°C");
+			i.putExtra(IntentConstants.Meta.Axes.EXTRA_FORMAT_STRING_Y, "%.0f€");
 
 			Market.intentLaunchMarketFallback(this, Market.MARKET_CHARTDROID_DETAILS_STRING, i, Market.NO_RESULT);
 			break;

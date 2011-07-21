@@ -1,8 +1,7 @@
 package com.dev43.cartax;
 
-import java.lang.reflect.Array;
+import java.util.ArrayList;
 
-import android.R.string;
 import android.util.Log;
 
 public class CostData {
@@ -18,16 +17,29 @@ public class CostData {
 	public static double[] oldCarsWeight = {0, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000, 3100, 3200, 3300, 3400, 10000};
 	public static double[] oldCarsFee = {75.92, 86.87, 98.55, 110.96, 124.10, 137.97, 152.57, 167.90, 183.96, 200.75, 218.27, 236.52, 255.50, 275.21, 295.65, 316.82, 338.72, 361.35, 384.71, 408.80, 433.62, 459.17, 485.45, 485.45};
 
-
+	public static ArrayList<Car> CARS = new ArrayList<Car>(); 
 	
-	public static String[] DEMO_TITLES = { "car1", "car2", "car3", "car4" };
+	public static String[] CAR_TITLES = { "car1", "car2", "car3", "car4" };
 
-	public static double[] DEMO_SERIES_1 = calculateDrivingCost(false, 2001, 2700, 118, 5.2/100);
-	public static double[] DEMO_SERIES_2 = calculateDrivingCost(true, 2004, 1320, 134, 7.0/100);
-	public static double[] DEMO_SERIES_3 = calculateDrivingCost(false, 2005, 2599, 140, 8.3/100);
-	public static double[] DEMO_SERIES_4 = calculateDrivingCost(false, 2003, 1500, 130, 5.2/100);   
-
-	public static double[][] DEMO_SERIES_LIST = {DEMO_SERIES_1, DEMO_SERIES_2, DEMO_SERIES_3, DEMO_SERIES_4};
+	public static double[][] CAR_SERIES_LIST;
+	
+	public static void generateCarTitles(){
+		CAR_TITLES = new String[CARS.size()];
+		int i=0;
+		for (Car car : CARS) {
+			CAR_TITLES[i] = car.getName();
+			i++;
+		}
+	}
+	
+	public static void generateCarSeriesList(){
+		CAR_SERIES_LIST = new double[CARS.size()][]; 
+		int i=0;
+		for (Car car : CARS){
+			CAR_SERIES_LIST[i] = calculateDrivingCost(car.getDiesel(), car.getYear(), car.getWeight(), car.getCo(), car.getLpkm());
+			i++;
+		}
+	}
 
 	static final String TAG = "CostData";
 	

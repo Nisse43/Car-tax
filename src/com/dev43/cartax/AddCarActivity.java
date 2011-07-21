@@ -52,7 +52,11 @@ public class AddCarActivity extends Activity implements View.OnClickListener {
 				Toast.makeText(this, R.string.inv_car_name, Toast.LENGTH_LONG).show();
 				break;
 			}
-			
+			int y = Integer.parseInt(year.getText().toString());
+			int c = Integer.parseInt(co2.getText().toString());
+			double lk = Double.parseDouble(lpkm.getText().toString());
+			int w = Integer.parseInt(weight.getText().toString());
+			CostData.CARS.add(new Car(carName.getText().toString(), diesel.isChecked(), y, w, c, lk));
 			setResult(RESULT_OK);
 			finish();
 			break;

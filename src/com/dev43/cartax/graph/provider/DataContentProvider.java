@@ -59,9 +59,10 @@ public class DataContentProvider extends ContentProvider {
 					ColumnSchema.Aspect.Series.COLUMN_SERIES_LABEL});
 
 		int row_index = 0;
-		for (int i=0; i<CostData.DEMO_TITLES.length; i++) {
+		CostData.generateCarTitles();
+		for (int i=0; i<CostData.CAR_TITLES.length; i++) {
 
-			c.newRow().add( row_index ).add( CostData.DEMO_TITLES[i] );
+			c.newRow().add( row_index ).add( CostData.CAR_TITLES[i] );
 			row_index++;
 		}
 
@@ -96,15 +97,16 @@ public class DataContentProvider extends ContentProvider {
 			}
 
 			// Add y-axis data
-			for (int i=0; i<CostData.DEMO_SERIES_LIST.length; i++) {
-				for (int j=0; j<CostData.DEMO_SERIES_LIST[i].length; j++) {
+			CostData.generateCarSeriesList();
+			for (int i=0; i<CostData.CAR_SERIES_LIST.length; i++) {
+				for (int j=0; j<CostData.CAR_SERIES_LIST[i].length; j++) {
 
 					//                    c.newRow().add( Y_AXIS_INDEX ).add( i ).add( TemperatureData.DEMO_SERIES_LIST[i][j] ).add( null );
 					c.newRow()
 					.add( row_index )
 					.add( ColumnSchema.Y_AXIS_INDEX )
 					.add( i )
-					.add( CostData.DEMO_SERIES_LIST[i][j] )
+					.add( CostData.CAR_SERIES_LIST[i][j] )
 					.add( null );
 
 					row_index++;
