@@ -19,4 +19,6 @@
     <string name="add_edit_car">Add or edit car</string>
     <string name="petrol">Petrol</string>
     <string name="diesel">Diesel</string>
+    <string name="car_weight">Weight</string>
+    <string name="inv_car_name">Invalid car name</string>
 </resources>

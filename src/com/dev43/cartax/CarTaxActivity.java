@@ -1,15 +1,18 @@
 package com.dev43.cartax;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.dev43.cartax.graph.IntentConstants;
 import com.dev43.cartax.graph.provider.DataContentProvider;
@@ -17,7 +20,8 @@ import com.dev43.cartax.graph.provider.DataContentProvider;
 public class CarTaxActivity extends Activity implements View.OnClickListener {
 	/** Called when the activity is first created. */
 	private Button buttonShowGraph;
-
+	private ListView carList;
+	private ArrayList<Car> cars;
 	static final String GOOGLE_CODE_URL = "http://chartdroid.googlecode.com/";
 
 	static final String TAG = "CarTax";
@@ -32,6 +36,10 @@ public class CarTaxActivity extends Activity implements View.OnClickListener {
 		this.buttonShowGraph = (Button) findViewById(R.id.buttonShowGraph);
 		this.buttonShowGraph.setOnClickListener(this);
 
+		this.carList = (ListView) findViewById(R.id.listViewCars);
+		cars = new ArrayList<Car>();
+		cars.add(new Car("Lada", 2.0, 3, 2011));
+		carList.setAdapter(new ArrayAdapter<Car>(this, android.R.layout.simple_list_item_1, cars));
 	}
 	
 	@Override

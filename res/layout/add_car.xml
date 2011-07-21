@@ -9,12 +9,13 @@
         </TableRow>
         <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
             <TextView android:id="@+id/textView1" android:text="@string/car_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_gravity="center_vertical" android:layout_weight="1"></TextView>
-            <EditText android:layout_width="150dip" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:id="@+id/editTextCar" android:layout_weight="1"></EditText>
+            <EditText android:layout_width="150dip" android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:id="@+id/editTextCar" android:layout_weight="1" android:singleLine="true">
+                <requestFocus></requestFocus>
+            </EditText>
         </TableRow>
         <TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content" android:layout_height="wrap_content">
             <TextView android:id="@+id/textView2" android:text="@string/car_year" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_gravity="center_vertical"></TextView>
-            <EditText android:inputType="number" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/editTextYear">
-                <requestFocus></requestFocus>
+            <EditText android:inputType="number" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/editTextYear" android:singleLine="true" android:numeric="integer">
             </EditText>
         </TableRow>
         <TableRow android:id="@+id/tableRow3" android:layout_width="wrap_content" android:layout_height="wrap_content">
@@ -23,14 +24,18 @@
         </TableRow>
         <TableRow android:id="@+id/tableRow4" android:layout_width="wrap_content" android:layout_height="wrap_content">
             <TextView android:id="@+id/textView4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_gravity="center_vertical" android:text="@string/car_co2"></TextView>
-            <EditText android:inputType="numberDecimal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/editTextGKM"></EditText>
+            <EditText android:inputType="numberDecimal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/editTextGKM" android:singleLine="true" android:numeric="integer"></EditText>
         </TableRow>
         <TableRow android:id="@+id/tableRow5" android:layout_width="wrap_content" android:layout_height="wrap_content">
             <TextView android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_gravity="center_vertical" android:text="@string/car_consumption"></TextView>
-            <EditText android:inputType="numberDecimal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/editTextLKM"></EditText>
+            <EditText android:inputType="numberDecimal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/editTextLKM" android:singleLine="true" android:numeric="decimal"></EditText>
+        </TableRow>
+        <TableRow android:layout_height="wrap_content" android:id="@+id/TableRow01" android:layout_width="wrap_content">
+            <TextView android:layout_gravity="center_vertical" android:id="@+id/TextView02" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/car_weight"></TextView>
+            <EditText android:inputType="numberDecimal" android:singleLine="true" android:layout_height="wrap_content" android:layout_width="wrap_content" android:numeric="decimal" android:id="@+id/editTextWeight"></EditText>
         </TableRow>
         <TableRow android:id="@+id/tableRow6" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <Button android:layout_height="wrap_content" android:text="@android:string/cancel" android:layout_width="150dip" android:onClick="@android:string/cancel" android:id="@+id/buttonCancel"></Button>
+            <Button android:layout_height="wrap_content" android:text="@android:string/cancel" android:layout_width="150dip" android:id="@+id/buttonCancel"></Button>
             <Button android:layout_width="wrap_content" android:text="@android:string/ok" android:layout_height="wrap_content" android:id="@+id/buttonOk"></Button>
         </TableRow>
     </TableLayout>

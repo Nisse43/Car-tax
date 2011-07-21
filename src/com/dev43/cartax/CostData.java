@@ -1,7 +1,5 @@
 package com.dev43.cartax;
 
-import java.lang.reflect.Array;
-
 public class CostData {
 	public static String[] DEMO_AXES_LABELS = { "1000 km", "Cost" };
 	public static String DEMO_CHART_TITLE = "Car anual cost/km";
