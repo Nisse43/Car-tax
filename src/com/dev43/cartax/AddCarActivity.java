@@ -1,6 +1,9 @@
 package com.dev43.cartax;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,7 +14,7 @@ import android.widget.ToggleButton;
 
 
 public class AddCarActivity extends Activity implements View.OnClickListener {
-	
+
 	private static final String TAG = "AddCarActivity";
 	private Button buttonCancel;
 	private Button buttonOk;
@@ -21,7 +24,8 @@ public class AddCarActivity extends Activity implements View.OnClickListener {
 	public EditText lpkm;
 	public EditText weight;
 	public ToggleButton diesel;
-	
+	private int index = -1;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -36,8 +40,21 @@ public class AddCarActivity extends Activity implements View.OnClickListener {
 		this.diesel = (ToggleButton) findViewById(R.id.toggleButtonDiesel);
 		this.buttonCancel.setOnClickListener(this);
 		this.buttonOk.setOnClickListener(this);
+
+		Bundle bundle = getIntent().getExtras();
+		if (bundle!=null && bundle.getInt("index",-1)>=0){
+			index = bundle.getInt("index");
+			Toast.makeText(this, "Editing Car", Toast.LENGTH_LONG).show();;
+			Car aCar = CostData.CARS.get(bundle.getInt("index"));
+			year.setText(Integer.toString(aCar.getYear()));
+			co2.setText(Integer.toString(aCar.getCo()));
+			lpkm.setText(Double.toString(aCar.getLpkm()));
+			weight.setText(Integer.toString(aCar.getWeight()));
+			diesel.setChecked(aCar.getDiesel());
+			carName.setText(aCar.getName());
+		}
 	}
-	
+
 	// ========================================================================
 	public void onClick(View v) {
 		switch (v.getId()) {
@@ -52,16 +69,47 @@ public class AddCarActivity extends Activity implements View.OnClickListener {
 				Toast.makeText(this, R.string.inv_car_name, Toast.LENGTH_LONG).show();
 				break;
 			}
-			int y = Integer.parseInt(year.getText().toString());
-			int c = Integer.parseInt(co2.getText().toString());
-			double lk = Double.parseDouble(lpkm.getText().toString());
-			int w = Integer.parseInt(weight.getText().toString());
-			CostData.CARS.add(new Car(carName.getText().toString(), diesel.isChecked(), y, w, c, lk));
-			setResult(RESULT_OK);
+			Bundle bundle = new Bundle();
+			bundle.putInt("year", Integer.parseInt(year.getText().toString()));
+			bundle.putInt("co2", Integer.parseInt(co2.getText().toString()));
+			bundle.putDouble("lpkm", Double.parseDouble(lpkm.getText().toString()));
+			bundle.putInt("weight", Integer.parseInt(weight.getText().toString()));
+			bundle.putBoolean("diesel", diesel.isChecked());
+			bundle.putString("name", carName.getText().toString());
+			bundle.putInt("index", index);
+			Intent intent = new Intent();
+			intent.putExtras(bundle);
+			setResult(RESULT_OK, intent);
+
 			finish();
 			break;
 		}
 		}
+	}
+
+	@Override
+	public void onSaveInstanceState(Bundle savedInstanceState) {
+		savedInstanceState.putInt("year", Integer.parseInt(year.getText().toString()));
+		savedInstanceState.putInt("co2", Integer.parseInt(co2.getText().toString()));
+		savedInstanceState.putDouble("lpkm", Double.parseDouble(lpkm.getText().toString()));
+		savedInstanceState.putInt("weight", Integer.parseInt(weight.getText().toString()));
+		savedInstanceState.putBoolean("diesel", diesel.isChecked());
+		savedInstanceState.putString("name", carName.getText().toString());
+		savedInstanceState.putInt("index", index);
+		//CostData.CARS.add(new Car(carName.getText().toString(), diesel.isChecked(), y, w, c, lk));
+		super.onSaveInstanceState(savedInstanceState);
+	}
+
+	@Override
+	public void onRestoreInstanceState(Bundle savedInstanceState) {
+		super.onRestoreInstanceState(savedInstanceState);
+		year.setText(Integer.toString(savedInstanceState.getInt("year",2011)));
+		co2.setText(Integer.toString(savedInstanceState.getInt("co2",150)));
+		lpkm.setText(Double.toString(savedInstanceState.getDouble("lpkm", 5.5)));
+		weight.setText(Integer.toString(savedInstanceState.getInt("weight",1800)));
+		diesel.setChecked(savedInstanceState.getBoolean("diesel",false));
+		carName.setText(savedInstanceState.getString("name"));
+		index = savedInstanceState.getInt("index", -1);
 	}
 
 }

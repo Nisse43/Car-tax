@@ -6,5 +6,5 @@
     android:layout_height="fill_parent" android:orientation="vertical" android:weightSum="1">
     <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/welcome" android:layout_margin="5dip" android:id="@+id/textViewComment"></TextView>
     <Button android:id="@+id/buttonShowGraph" android:text="@string/graph_button" android:onClick="ShowGraph" android:layout_height="wrap_content" android:layout_width="fill_parent" android:layout_margin="5dip"></Button>
-    <ListView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/listViewCars"></ListView>
+    <ListView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/listViewCars" android:longClickable="true" android:clickable="true"></ListView>
 </LinearLayout>
