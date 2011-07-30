@@ -115,8 +115,8 @@ public class CarTaxActivity extends Activity implements View.OnClickListener, Ad
 	}
 
 	private void showHelp() {
-		// TODO Auto-generated method stub
-
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setMessage(R.string.help_text).setNegativeButton(android.R.string.ok, this).show();
 	}
 
 	@Override
@@ -140,7 +140,7 @@ public class CarTaxActivity extends Activity implements View.OnClickListener, Ad
 			aCar.setWeight(bundle.getInt("weight"));
 			aCar.setYear(bundle.getInt("year"));
 			carListAdapter.notifyDataSetChanged();
-			Toast.makeText(this, aCar.getName() + " Was updated", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, String.format(getString(R.string.car_updated), aCar.getName()), Toast.LENGTH_SHORT).show();
 		}
 	}
 
@@ -202,7 +202,7 @@ public class CarTaxActivity extends Activity implements View.OnClickListener, Ad
 			long id) {
 		deleteId = position;
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage("Do you want to delete " + ((TextView) view).getText() +" and all its data from the list ?").setPositiveButton(android.R.string.yes, this)
+		builder.setMessage(String.format(getString(R.string.delete_confirmation), ((TextView) view).getText())).setPositiveButton(android.R.string.yes, this)
 		.setNegativeButton(android.R.string.no, this).setTitle("Delete car").show();
 		return false;
 	}

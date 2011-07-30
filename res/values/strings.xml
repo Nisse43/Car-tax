@@ -15,10 +15,13 @@
     <string name="car_consumption">l/100km</string>
     <string name="car_heading">Please fill in the car data</string>
     <string name="add_car">Add car</string>
-    <string name="help">Help</string>
+    <string name="help">About</string>
     <string name="add_edit_car">Add or edit car</string>
     <string name="petrol">Petrol</string>
     <string name="diesel">Diesel</string>
     <string name="car_weight">Weight</string>
     <string name="inv_car_name">Invalid car name</string>
+    <string name="help_text">Thank you for trying this application!\n\nThis application calculates how much a car will cost annually based on how much it is used. The base cost is calculated based  on age, fuel consumption, carbon dioxide emission value and weight. A new car can be added by pressing the menu button. Currently the algorithm only calculates according to Finnish regulations and the cost does not include insurance costs. However, support for other countries and more input data can be added in future versions.\n\nWe hope you will enjoy this app and that it will help you make good decisions (if this is even possible in the business of buying cars).</string>
+    <string name="car_updated">%s successfully updated</string>
+    <string name="delete_confirmation">Do you want to delete %s and all its data from the list ?</string>
 </resources>
